@@ -34,6 +34,25 @@ public:
     }
 };
 
+void VeKhung(int x0, int y0, int w, int h) 
+{
+    if (w < 2 or h < 2) return;
+    for (int x = x0; x < x0 + w; ++x) 
+	{
+        gotoxy(x, y0);
+        cout << '#';
+        gotoxy(x, y0 + h - 1);
+        cout << '#';
+    }
+    for (int y = y0; y < y0 + h; ++y) 
+	{
+        gotoxy(x0, y);
+        cout << '#';
+        gotoxy(x0 + w - 1, y);
+        cout << '#';
+    }
+}
+
 int main()
 {
     CONRAN r;
@@ -49,6 +68,7 @@ int main()
             if (t=='x') Huong = 1;
         }
         system("cls");
+		VeKhung(5, 3, 70, 20);
         r.Ve();
         r.DiChuyen(Huong);
         Sleep(300);
